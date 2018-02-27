@@ -1,0 +1,123 @@
+* {
+    font-family: Helvetica !important;
+}
+
+.header-container {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    color: #1d3649;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+}
+
+.logo-container {
+    height: 50px;
+}
+
+.company-logo-container {
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.company-logo {
+    height: 50px;
+    margin-left: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-left {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    float: right;
+    align-items: center;
+    margin-right: 10px;
+    color: #1d3649;
+    height: 25px;
+}
+
+.header-right > * {
+    margin-right:10px;
+}
+
+.header-text {
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-family: "lato";
+}
+
+.logout-icon {
+    height: 26px;
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-right: 2px;
+    /* background-color: #1d3649; */
+    align-items: center;
+    cursor: pointer;
+}
+
+.logout-container {
+    background-color: white;
+    width: 400px;
+    height: 140px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 150px;
+    margin-left: -200px;
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 10;
+    border: 1px solid #1d3649;
+}
+
+.logout-container-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.logout-container-button-1 {
+    padding: 10px;
+    width: 80px;
+    background-color: #2185d0;
+    border: 1px solid #2185d0;
+    color: white;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.logout-container-button-2 {
+    padding: 10px;
+    width: 80px;
+    background-color: #2185d0;
+    border: 1px solid #2185d0;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-container-button-1:hover {
+    background-color: #1678c2;
+    transform: scale(1.2);
+}
+
+.logout-container-button-2:hover {
+    background-color: #1678c2;
+    transform: scale(1.1);
+}
