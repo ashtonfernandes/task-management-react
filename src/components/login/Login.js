@@ -53,13 +53,12 @@ class Login extends Component {
     handleSignOut = () => {
         localStorage.setItem('login', false);
         this.setState({ isLogin: false, username: '', password: '' });
-
-        console.log(
-            'when logout-',
-            localStorage.getItem('login') +
-                ' state: ' +
-                JSON.stringify(this.state)
-        );
+        // console.log(
+        //     'when logout-',
+        //     localStorage.getItem('login') +
+        //         ' state: ' +
+        //         JSON.stringify(this.state)
+        // );
     };
 
     render() {

@@ -19,6 +19,7 @@ class Home extends Component {
                     isLogin={this.state.isLogin}
                     isHome={this.state.isHome}
                     isDashboard={this.state.isDashboard}
+                    action={this.props.action}
                 />
                 <div className="home-header">
                     Welcome to your React app
