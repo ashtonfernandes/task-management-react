@@ -29,7 +29,7 @@ class Header extends Component {
                         </div>
                         <div className="header-right">
                             <div className="header-text-small">
-                                Expense Management
+                                Task Management
                             </div>
                         </div>
                     </div>
