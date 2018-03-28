@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
-var BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
@@ -34,7 +33,7 @@ module.exports = {
       }
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    // new FaviconsWebpackPlugin({ logo: "./react-icon.png", inject: true })
+    new FaviconsWebpackPlugin({ logo: "./react-icon.png", inject: true })
   ],
   module: {
     loaders: [

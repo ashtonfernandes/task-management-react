@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Login from './login/Login';
 import Home from './home/Home';
 import { Switch, Route } from 'react-router-dom';
 
@@ -9,8 +8,7 @@ class App extends Component {
             <div className="body">
                 <main>
                     <Switch>
-                        <Route exact path="/" component={Login} />
-                        <Route exact path="home/" component={Home} />
+                        <Route exact path="/" component={Home} />
                     </Switch>
                 </main>
             </div>
