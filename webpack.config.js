@@ -23,7 +23,7 @@ module.exports = {
     }),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
-      title: "React App",
+      title: "Task Management App",
       template: path.resolve("index.ejs"),
       minify: {
         collapseWhitespace: true,

@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-express-app",
+  "name": "task-management-react",
   "version": "1.0.0",
-  "description": "React app",
+  "description": "Task Management App",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node ./srv/server.js",
