@@ -8,7 +8,7 @@ class Home extends Component {
         this.state = {
             isHome: true,
             isLogin: false,
-            option: "",
+            task: "",
             app: {
                 title: 'My tasks for the day',
                 options: ["study", "eat"]
@@ -23,7 +23,7 @@ class Home extends Component {
         newTask.push(this.state.option);
         this.setState({
             options: newTask,
-            option: ""
+            task: ""
         });
     }
     
@@ -42,7 +42,7 @@ class Home extends Component {
 
     handleInputChange = (e) => {
         this.setState({
-            option: e.target.value
+            task: e.target.value
         });
     }
 
@@ -70,7 +70,7 @@ class Home extends Component {
                     </ol>
                     <form onSubmit={this.onFormSubmit}>
                         <div className="submit-container" >
-                            <input className="input-field" type="text" name="task" value={this.state.option} onChange={this.handleInputChange}></input>
+                            <input className="input-field" type="text" name="task" value={this.state.task} onChange={this.handleInputChange}></input>
                             <button className="button">Add task!</button>
                         </div>
                     </form>
