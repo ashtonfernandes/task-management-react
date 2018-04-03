@@ -23,18 +23,43 @@ body {
 .button {
     width: 100px;
     height: 50px;
+    margin: 5px;
 }
 
 .button:hover {
     color: white;
-    background-color: blue;
+    background-color: rgb(229, 57, 53);
 }
 
 .submit-container {
     display: flex;
     justify-content: center;
+    padding: 20px
 }
 
 .input-field {
     margin-right: 25px;
+}
+
+.list-item {
+    list-style-type: none;
+}
+
+.item-buttons {
+    display: flex !important;
+}
+
+.task-item-completed {
+    padding-bottom: 20px;
+    display: flex;
+    text-decoration: line-through !important;
+}
+
+.task-item-incomplete {
+    padding-bottom: 20px;
+    display: flex;
+}
+
+.list-checkbox {
+    margin-top: 12px
 }
