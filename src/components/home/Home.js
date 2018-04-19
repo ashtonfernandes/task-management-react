@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Header from "../header/Header";
+import AddTask from "../addTask/AddTask";
 import DeleteIcon from "material-ui/svg-icons/action/delete";
 import Checkbox from "material-ui/Checkbox";
 import IconButton from "material-ui/IconButton";
@@ -39,7 +40,7 @@ class Home extends Component {
     this.setState({ open: false });
   };
 
-  taskCompleted = value => {
+  taskCompleted = (value) => {
     const allOptions = this.state.options.map(option => {
       if (option.name === value.name) {
         option.taskCompleted = !option.taskCompleted;
@@ -52,41 +53,19 @@ class Home extends Component {
     });
   };
 
-  onFormSubmit = e => {
-    e.preventDefault();
-    if (this.state.option.name !== "") {
-      let newTask = this.state.options;
-      newTask.push(this.state.option);
-      this.setState({
-        options: newTask,
-        option: {
-          name: ""
-        }
-      });
-    }
-  };
-
   onMakeDecision = () => {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
     alert(this.state.options[randomNumber].name);
   };
 
-  removeAll = e => {
+  removeAll = (e) => {
     this.setState({
       options: [],
       removeAll: true
     });
   };
 
-  handleInputChange = e => {
-    this.setState({
-      option: {
-        name: e.target.value
-      }
-    });
-  };
-
-  deleteTask = option => {
+  deleteTask = (option) => {
     let newOptions = this.state.options.filter(function(item) {
       return item !== option;
     });
@@ -94,6 +73,20 @@ class Home extends Component {
       options: newOptions
     });
   };
+
+  handleNewValue = (newTask) => {
+    this.setState({
+      option: {
+        name: newTask.name,
+        taskCompleted: false
+      }
+    }, () => {
+      this.state.options.push(this.state.option);
+      this.setState({
+        options: this.state.options
+      })
+    })    
+  }
 
   render() {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
@@ -110,7 +103,6 @@ class Home extends Component {
         <div className="main-div">
           <div className="top-container">
             <div className="home-header">
-              {/* <h1>My tasks for the day</h1> */}
             </div>
           </div>
           <div className="main-conatiner">
@@ -176,24 +168,7 @@ class Home extends Component {
                 <Divider />
               </ListItem>
             ))}
-            <form onSubmit={this.onFormSubmit}>
-              <div className="submit-container">
-                <TextField
-                  className="input-field"
-                  fullWidth={true}
-                  type="text"
-                  name="option"
-                  value={this.state.option.name}
-                  onChange={this.handleInputChange}
-                />
-                <RaisedButton
-                  className="add-button"
-                  label="Add Task"
-                  onClick={this.onFormSubmit}
-                  disabled={this.state.options.length === 0}
-                />
-              </div>
-            </form>
+            <AddTask option={this.state.option} options={this.state.options} onNewValue={this.handleNewValue}/>
           </div>
         </div>
       </div>
