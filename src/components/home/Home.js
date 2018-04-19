@@ -189,7 +189,7 @@ class Home extends Component {
                 <RaisedButton
                   className="add-button"
                   label="Add Task"
-                  onClick={this.handleOpen}
+                  onClick={this.onFormSubmit}
                   disabled={this.state.options.length === 0}
                 />
               </div>
