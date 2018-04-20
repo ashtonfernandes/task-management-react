@@ -13,9 +13,7 @@ class addTask extends Component {
   }
 
   onFormSubmit = e => {
-    console.log('hello');
     e.preventDefault();
-    console.log('okayyyyy:', e.target.elements.option.value);
     if (e.target.elements.option.value!== "") {
       this.props.onNewValue(e.target.elements.option.value);
       document.getElementById('myInput').value = '';
