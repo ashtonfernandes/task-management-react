@@ -5,32 +5,21 @@ import RaisedButton from "material-ui/RaisedButton";
 
 class addTask extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
-      option: props.option,
       options: props.options
     };
   }
 
   onFormSubmit = e => {
+    console.log('hello');
     e.preventDefault();
-    if (this.state.option.name !== "") {
-      let newTask = this.state.option;
-      this.props.onNewValue(newTask); 
-      this.setState({
-        option: {
-          name: ""
-        }
-      });
+    console.log('okayyyyy:', e.target.elements.option.value);
+    if (e.target.elements.option.value!== "") {
+      this.props.onNewValue(e.target.elements.option.value);
+      document.getElementById('myInput').value = '';
     }
-  };
-
-  handleInputChange = e => {
-    this.setState({
-      option: {
-        name: e.target.value
-      }
-    });
   };
 
   render() {
@@ -39,17 +28,15 @@ class addTask extends Component {
         <form onSubmit={this.onFormSubmit}>
           <div className="submit-container">
             <TextField
+              id="myInput"
               className="input-field"
               fullWidth={true}
               type="text"
               name="option"
-              value={this.state.option.name}
-              onChange={this.handleInputChange}
             />
             <RaisedButton
               className="add-button"
               label="Add Task"
-              onClick={this.onFormSubmit}
               disabled={this.state.options.length === 0}
             />
           </div>

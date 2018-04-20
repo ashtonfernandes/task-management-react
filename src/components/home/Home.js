@@ -77,7 +77,7 @@ class Home extends Component {
   handleNewValue = (newTask) => {
     this.setState({
       option: {
-        name: newTask.name,
+        name: newTask,
         taskCompleted: false
       }
     }, () => {
@@ -168,7 +168,7 @@ class Home extends Component {
                 <Divider />
               </ListItem>
             ))}
-            <AddTask option={this.state.option} options={this.state.options} onNewValue={this.handleNewValue}/>
+            <AddTask options={this.state.options} onNewValue={this.handleNewValue}/>
           </div>
         </div>
       </div>
