@@ -5,7 +5,6 @@ import RaisedButton from "material-ui/RaisedButton";
 
 class addTask extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       options: props.options
@@ -14,9 +13,15 @@ class addTask extends Component {
 
   onFormSubmit = e => {
     e.preventDefault();
-    if (e.target.elements.option.value!== "") {
-      this.props.onNewValue(e.target.elements.option.value);
-      document.getElementById('myInput').value = '';
+    if (e.target.elements.option.value.trim()) {
+      const newTask = {
+        name: e.target.elements.option.value.trim(),
+        taskCompleted: false
+      }
+      if (newTask) {
+        this.props.onNewValue(newTask);
+        document.getElementById('myInput').value = '';
+      }
     }
   };
 

@@ -65,27 +65,21 @@ class Home extends Component {
     });
   };
 
-  deleteTask = (option) => {
-    let newOptions = this.state.options.filter(function(item) {
-      return item !== option;
-    });
-    this.setState({
-      options: newOptions
-    });
+  deleteTask = (optionSelected) => {
+    this.setState((prevState) => ({
+      options: this.state.options.filter((item) => {
+        return item !== optionSelected;
+      })
+    }));
+
   };
 
   handleNewValue = (newTask) => {
-    this.setState({
-      option: {
-        name: newTask,
-        taskCompleted: false
+    this.setState((prevState) => {
+      return {
+        options: prevState.options.concat([newTask])
       }
-    }, () => {
-      this.state.options.push(this.state.option);
-      this.setState({
-        options: this.state.options
-      })
-    })    
+    })
   }
 
   render() {
@@ -95,11 +89,7 @@ class Home extends Component {
     ];
     return (
       <div>
-        <Header
-          isLogin={this.state.isLogin}
-          isHome={this.state.isHome}
-          isDashboard={this.state.isDashboard}
-        />
+        <Header />
         <div className="main-div">
           <div className="top-container">
             <div className="home-header">
@@ -119,11 +109,11 @@ class Home extends Component {
                   open={this.state.open}
                   onRequestClose={this.handleClose}
                 >
-                  {this.state.removeAll ? (
+                  {/* {this.state.removeAll ? (
                     null
                   ) : (
                     <div> {this.state.options[randomNumber].name}</div>
-                  )}
+                  )} */}
                 </Dialog>
               </div>
 
@@ -131,9 +121,9 @@ class Home extends Component {
                 <RaisedButton label="Remove All" onClick={this.removeAll} />
               </div>
             </div>
-            {this.state.options.map(option => (
+            {this.state.options.map((option, i) => (
               <ListItem
-                key={option + "list"}
+                key={i}
                 className="list-item"
                 rightIconButton={
                   <div className="item-buttons">
